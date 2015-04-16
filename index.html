@@ -7,17 +7,68 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>BrokenLinc</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate/bootstrap.min.css">
 		<!--[if lt IE 9]>
 		<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
+		<link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/css/styles.css">
 	</head>
 	<body>
 
-	<h1><a href="/">BrokenLinc</a></h1>
+		<header class="js-header">
+			<a class="header-toggle js-header-toggle" href="/">
+				<svg class="brokenlinc-logo" preserveAspectRatio="xMidYMin meet" viewBox="0 0 145 145">
+					<svg y="13" class="group-bl">
+						<g>
+							<svg x="70">
+								<g>
+									<path d="
+										M 0,45
+										L 0,80 
+										A 40,40 0 0 0 75,100
+										L 40,100
+										A 20,20 0 0 1 20,80
+										L 20,57
+										A 60,60 0 0 1 0,45
+										z"
+										class="path-l fill-accent">
+									</path>
+								</g>
+							</svg>
+							<path d="
+								M 0,0 
+								L 0,80 
+								A 40,40 0 1 0 60,45
+								L 60,80
+								A 20,20 0 0 1 20,80
+								L 20,0
+								z"
+								class="path-b fill-foreground">
+							</path>
+						</g>
+					</svg>
+				</svg>
+			</a>
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/week-1">Week 1</a></li>
+				</ul>
+			</nav>
+		</header>
 <!-- /masterpage.header -->
 
+
+<section class="section--homecontent">
+	<h1>Experiments in web animation</h1>
+	<nav class="nav--linklist">
+		<ul>
+			<li><a href="/week-1">Week 1</a></li>
+		</ul>
+	</nav>
+</section>
 
 
 <!-- masterpage.footer -->
@@ -25,6 +76,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+		<script src="/js/masterpage.js"></script>
 	</body>
 </html>
 <!-- /masterpage.footer -->

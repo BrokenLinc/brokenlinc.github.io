@@ -1,0 +1,31 @@
+<svg preserveAspectRatio="xMidYMin meet" viewBox="0 0 145 145">
+	<svg y="13" class="group-bl">
+		<g>
+			<svg x="70">
+				<g>
+					<path d="
+						M 0,45
+						L 0,80 
+						A 40,40 0 0 0 75,100
+						L 40,100
+						A 20,20 0 0 1 20,80
+						L 20,57
+						A 60,60 0 0 1 0,45
+						z"
+						class="path-l fill-accent">
+					</path>
+				</g>
+			</svg>
+			<path d="
+				M 0,0 
+				L 0,80 
+				A 40,40 0 1 0 60,45
+				L 60,80
+				A 20,20 0 0 1 20,80
+				L 20,0
+				z"
+				class="path-b fill-foreground">
+			</path>
+		</g>
+	</svg>
+</svg>
