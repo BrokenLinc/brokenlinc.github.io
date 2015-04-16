@@ -58,11 +58,194 @@
 				</ul>
 			</nav>
 		</header>
-<!-- /masterpage.header -->
 
-<!-- masterpage.footer -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- /masterpage.header -->
+
+
+	<style>
+	body {
+		background-color:#def;
+	}
+	.animation-container svg {
+		opacity: 0;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%, -50%);
+	}
+	.animations-ready svg {
+		opacity: 1;
+	}
+	#circle-logo {
+		transform: rotate(-30deg);
+		transform-origin:240px 240px;
+	}
+	</style>
+
+	<div class="animation-container">
+		<svg width="280px" height="280px" viewBox="0 0 480 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+		    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+		    <title>circle-logo</title>
+		    <desc>Created with Sketch.</desc>
+		    <defs></defs>
+		    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+		        <g id="circle-logo" sketch:type="MSArtboardGroup">
+		            <path d="M240,480 C372.54834,480 480,372.54834 480,240 C480,107.45166 372.54834,0 240,0 C107.45166,0 0,107.45166 0,240 C0,372.54834 107.45166,480 240,480 Z M240,320 C284.18278,320 320,284.18278 320,240 C320,195.81722 284.18278,160 240,160 C195.81722,160 160,195.81722 160,240 C160,284.18278 195.81722,320 240,320 Z" id="donut" fill="#115094" sketch:type="MSShapeGroup"></path>
+		            <circle id="ring-middle" stroke="#FFFFFF" stroke-width="40" stroke-linecap="round" stroke-dasharray="335,1005" sketch:type="MSShapeGroup" transform="translate(240.000000, 240.000000) rotate(-40.000000) translate(-240.000000, -240.000000) " cx="240" cy="240" r="160"></circle>
+		            <circle id="ring-inner" stroke="#FFFFFF" stroke-width="40" stroke-linecap="round" stroke-dasharray="230,692" sketch:type="MSShapeGroup" transform="translate(240.000000, 240.000000) rotate(-20.000000) translate(-240.000000, -240.000000) " cx="240" cy="240" r="110"></circle>
+		            <circle id="ring-outer" stroke="#FFFFFF" stroke-width="40" stroke-linecap="round" stroke-dasharray="440,1320" sketch:type="MSShapeGroup" transform="translate(240.000000, 240.000000) rotate(-30.000000) translate(-240.000000, -240.000000) " cx="240" cy="240" r="210"></circle>
+		        </g>
+		    </g>
+		</svg>
+	</div>
+
+
+	<div class="options-menu">
+		<a class="js-replay" href="javascript:void(0)">Replay</a>
+	</div>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+	<script>
+
+		//CUSTOM ANIMATIONS!
+
+		var ring_draw = {
+			css: {
+				'stroke-dashoffset': 0,
+				'stroke-width': 40
+			},
+			duration: 400,
+			easing: 'easeInQuad'
+		}
+
+		var presequence = [
+			{
+				what:'#circle-logo',
+				css: {
+					opacity: 0
+				}
+			},
+			{
+				what:'circle',
+				css: {
+					'stroke-width': 0
+				}
+			},
+			{
+				what:'#ring-inner',
+				css: {
+					'stroke-dashoffset': 230
+				}
+			},
+			{
+				what:'#ring-middle',
+				css: {
+					'stroke-dashoffset': 335
+				}
+			},
+			{
+				what:'#ring-outer',
+				css: {
+					'stroke-dashoffset': 440
+				}
+			},
+		];
+		var sequence = [
+			{
+				when:100,
+				what:'#circle-logo',
+				how: {
+					css: {
+						'opacity': 1
+					},
+					duration: 200,
+					easing: 'easeInQuad'
+				}
+			},
+			{
+				when:400,
+				what:'#ring-inner',
+				how: ring_draw
+			},
+			{
+				when:500,
+				what:'#ring-middle',
+				how: ring_draw
+			},
+			{
+				when:600,
+				what:'#ring-outer',
+				how: ring_draw
+			},
+		];
+
+		// var ring_bloop = {
+		// 	css: {
+		// 		'stroke-width': 40
+		// 	},
+		// 	duration: 200,
+		// 	easing: 'easeInQuad'
+		// };
+		// var bloop_presequence = [
+		// 	{
+		// 		what:'circle',
+		// 		css: {
+		// 			'stroke-width': 0
+		// 		}
+		// 	}
+		// ];
+		// var bloop_sequence = [
+		// 	{
+		// 		when:200,
+		// 		what:'#ring-inner',
+		// 		how: ring_bloop
+		// 	},
+		// 	{
+		// 		when:300,
+		// 		what:'#ring-middle',
+		// 		how: ring_bloop
+		// 	},
+		// 	{
+		// 		when:400,
+		// 		what:'#ring-outer',
+		// 		how: ring_bloop
+		// 	},
+		// ];
+
+
+		//AUTOMATION -_-
+
+		function doanim() {
+			var $circle_logo = $('svg');
+
+			for(var i in presequence) {
+				var preset = presequence[i];
+
+				$(preset.what, $circle_logo).css(preset.css);
+			}
+
+			$('html').addClass('animations-ready');
+
+			for(var i in sequence) {
+				var animation = sequence[i];
+
+				setTimeout(function(animation) {
+					$(animation.what, $circle_logo).animate(
+						animation.how.css, 
+						animation.how.duration, 
+						animation.how.easing);
+				}, animation.when, animation);
+			}
+		}
+		doanim();
+
+		$('.js-replay').click(doanim);
+	</script>
+
+<!-- masterpage.footer -->
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 		<script src="/js/masterpage.js"></script>

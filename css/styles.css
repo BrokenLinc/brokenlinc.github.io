@@ -8,6 +8,7 @@ a {
 }
 header {
   position: fixed;
+  z-index: 1;
   top: 0;
   bottom: 0;
   left: 0;
@@ -90,4 +91,20 @@ header.open nav ul {
 }
 .section--homecontent h1 {
   font-size: 18px;
+}
+.options-menu {
+  position: fixed;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 2em;
+}
+.options-menu a {
+  display: inline-block;
+  border-left: 1px solid rgba(136, 136, 136, 0.5);
+  padding: 0 1em;
+}
+.options-menu a:first-child {
+  border-left: 0 none;
 }
