@@ -5,14 +5,12 @@ var path = require('path');
 var prefix = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var watch = require('gulp-watch');
-var eol = require('gulp-eol');
 
 gulp.task('less', function () {
 	gulp.src('./less/*.less')
 		.pipe(plumber()) // better error handling
 		.pipe(less())
 		.pipe(prefix("last 1 version", "> 0.5%", "ie 8"))
-		.pipe(eol('\n')) // for git
 		.pipe(gulp.dest('./css'))
 		.pipe(livereload({ start: true }));
 
@@ -20,7 +18,6 @@ gulp.task('less', function () {
 		.pipe(plumber()) // better error handling
 		.pipe(less())
 		.pipe(prefix("last 1 version", "> 0.5%", "ie 8"))
-		.pipe(eol('\n')) // for git
 		.pipe(gulp.dest(function(file) {
 			return file.cwd;
 		}))
