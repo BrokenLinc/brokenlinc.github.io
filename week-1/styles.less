@@ -1,0 +1,20 @@
+body {
+	background-color:#def;
+}
+.animation-container svg {
+	position:absolute;
+
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+
+	opacity: 0;
+	
+	.animations-ready & {
+		opacity: 1;
+	}
+}
+#circle-logo {
+	transform: rotate(-30deg);
+	transform-origin:240px 240px;
+}

@@ -6,17 +6,13 @@ a {
   -webkit-transition: color 0.1s, background-color 0.1s;
           transition: color 0.1s, background-color 0.1s;
 }
-header {
+header nav {
   position: fixed;
   z-index: 1;
   top: 0;
   bottom: 0;
   left: 0;
   width: 300px;
-}
-header nav {
-  width: 300px;
-  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-transform: translate(-100%, 0);
@@ -79,8 +75,8 @@ header.open .brokenlinc-logo {
 }
 .header-toggle {
   display: block;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 60px;

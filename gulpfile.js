@@ -15,10 +15,20 @@ gulp.task('less', function () {
 		.pipe(eol('\n')) // for git
 		.pipe(gulp.dest('./css'))
 		.pipe(livereload({ start: true }));
+
+	gulp.src('./week-*/*.less')
+		.pipe(plumber()) // better error handling
+		.pipe(less())
+		.pipe(prefix("last 1 version", "> 0.5%", "ie 8"))
+		.pipe(eol('\n')) // for git
+		.pipe(gulp.dest(function(file) {
+			return file.cwd;
+		}))
+		.pipe(livereload({ start: true }));
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./less/**/*.less', ['less']);  // Watch all the .less files, then run the less task
+    gulp.watch('./**/*.less', ['less']);  // Watch all the .less files, then run the less task
 });
 
 gulp.task('default', ['less', 'watch']); // Default will run the 'entry' watch task
