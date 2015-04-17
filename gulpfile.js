@@ -7,21 +7,21 @@ var plumber = require('gulp-plumber');
 var watch = require('gulp-watch');
 
 gulp.task('less', function () {
-	gulp.src('./less/*.less')
-		.pipe(plumber()) // better error handling
-		.pipe(less())
-		.pipe(prefix("last 1 version", "> 0.5%", "ie 8"))
-		.pipe(gulp.dest('./css'))
-		.pipe(livereload({ start: true }));
 
-	gulp.src('./week-*/*.less')
-		.pipe(plumber()) // better error handling
-		.pipe(less())
-		.pipe(prefix("last 1 version", "> 0.5%", "ie 8"))
-		.pipe(gulp.dest(function(file) {
-			return file.cwd;
-		}))
-		.pipe(livereload({ start: true }));
+	function sameFolderAsSource(file) {
+		return file.cwd;
+	}
+	function process(src, dest) {
+		gulp.src(src)
+			.pipe(plumber()) // better error handling
+			.pipe(less())
+			.pipe(prefix("last 1 version", "> 0.5%", "ie 8"))
+			.pipe(gulp.dest(dest))
+			.pipe(livereload({ start: true }));
+	}
+	
+	process('./less/*.less', './css');
+	process('./week-*/*.less', sameFolderAsSource);
 });
 
 gulp.task('watch', function() {
