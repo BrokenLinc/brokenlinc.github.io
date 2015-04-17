@@ -22,7 +22,7 @@ header nav {
   -webkit-transform: translate(-100%, 0);
       -ms-transform: translate(-100%, 0);
           transform: translate(-100%, 0);
-  background: #442244;
+  background: #333537;
   -webkit-transition: -webkit-transform 0.15s 0.15s;
           transition: transform 0.15s 0.15s;
   text-align: right;
@@ -42,13 +42,22 @@ header nav ul a {
   display: block;
   line-height: 40px;
   padding: 0 20px;
-  color: #66ee99;
-  border-bottom: 1px solid #663366;
+  color: #66ccff;
+  border-bottom: 1px solid #4c4f51;
 }
 header nav ul a:hover {
-  color: #abf6c7;
-  background: #552b55;
+  color: #b3e6ff;
+  background: #3f4244;
   text-decoration: none;
+}
+header .brokenlinc-logo {
+  fill: black;
+  opacity: 0.2;
+  -webkit-transition: all 0.15s 0.15s;
+          transition: all 0.15s 0.15s;
+}
+html.inverted header .brokenlinc-logo {
+  fill: white;
 }
 header.open nav {
   -webkit-transform: translate(0, 0);
@@ -62,6 +71,12 @@ header.open nav ul {
   -webkit-transition: opacity 0.15s 0.15s;
           transition: opacity 0.15s 0.15s;
 }
+header.open .brokenlinc-logo {
+  fill: white;
+  opacity: 1;
+  -webkit-transition: all 0.15s;
+          transition: all 0.15s;
+}
 .header-toggle {
   display: block;
   position: absolute;
@@ -71,13 +86,6 @@ header.open nav ul {
   width: 60px;
   height: 60px;
   padding: 10px;
-  background: #66ee99;
-}
-.fill-accent {
-  fill: black;
-}
-.fill-foreground {
-  fill: white;
 }
 .section--homecontent {
   position: absolute;
@@ -102,9 +110,23 @@ header.open nav ul {
 }
 .options-menu a {
   display: inline-block;
-  border-left: 1px solid rgba(136, 136, 136, 0.5);
   padding: 0 1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  opacity: 0.35;
+  -webkit-transition: opacity 0.3s;
+          transition: opacity 0.3s;
+  color: black;
+  border: 1px solid black;
 }
-.options-menu a:first-child {
-  border-left: 0 none;
+html.inverted .options-menu a {
+  color: white;
+  border-color: white;
+}
+.options-menu a:hover {
+  opacity: 1;
+}
+.options-menu a:hover,
+.options-menu a:focus {
+  text-decoration: none;
 }

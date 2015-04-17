@@ -1,6 +1,6 @@
-<!-- masterpage.header -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- masterpage.header -->
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,36 +19,8 @@
 
 		<header class="js-header">
 			<a class="header-toggle js-header-toggle" href="/">
-				<svg class="brokenlinc-logo" preserveAspectRatio="xMidYMin meet" viewBox="0 0 145 145">
-					<svg y="13" class="group-bl">
-						<g>
-							<svg x="70">
-								<g>
-									<path d="
-										M 0,45
-										L 0,80 
-										A 40,40 0 0 0 75,100
-										L 40,100
-										A 20,20 0 0 1 20,80
-										L 20,57
-										A 60,60 0 0 1 0,45
-										z"
-										class="path-l fill-accent">
-									</path>
-								</g>
-							</svg>
-							<path d="
-								M 0,0 
-								L 0,80 
-								A 40,40 0 1 0 60,45
-								L 60,80
-								A 20,20 0 0 1 20,80
-								L 20,0
-								z"
-								class="path-b fill-foreground">
-							</path>
-						</g>
-					</svg>
+				<svg viewBox="0 0 145 145" class="brokenlinc-logo">
+					<use xlink:href="/img/logo-glyph.svg#glyph"></use>
 				</svg>
 			</a>
 			<nav>
@@ -63,7 +35,6 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- /masterpage.header -->
 
-
 	<style>
 	body {
 		background-color:#def;
@@ -75,7 +46,7 @@
 		left:50%;
 		transform: translate(-50%, -50%);
 	}
-	.animations-ready svg {
+	.animations-ready .animation-container svg {
 		opacity: 1;
 	}
 	#circle-logo {
@@ -250,5 +221,5 @@
 
 		<script src="/js/masterpage.js"></script>
 	</body>
-</html>
 <!-- /masterpage.footer -->
+</html>

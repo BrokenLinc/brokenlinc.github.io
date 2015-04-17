@@ -1,5 +1,5 @@
-@header-link-color: #6e9;
-@header-bg: #424;
+@header-link-color: #6cf; //#6e9;
+@header-bg: #333537; //#424;
 @header-transition-duration: 0.3s;
 
 //TODO: light and dark theming
@@ -66,16 +66,36 @@ header {
 		}
 	}
 
+	.brokenlinc-logo {
+		fill:black;
+		opacity: 0.2;
+
+		transition:all @header-transition-duration/2 @header-transition-duration/2;
+
+		html.inverted & {
+			fill:white;
+		}
+	}
+
 	//open and intro
-	&.open nav {
-		transform: translate(0, 0);
+	&.open {
+		nav {
+			transform: translate(0, 0);
 
-		transition:transform @header-transition-duration/2;
+			transition:transform @header-transition-duration/2;
 
-		ul {
+			ul {
+				opacity:1;
+
+				transition: opacity @header-transition-duration/2 @header-transition-duration/2;
+			}
+		}
+
+		.brokenlinc-logo {
+			fill:white;
 			opacity:1;
 
-			transition: opacity @header-transition-duration/2 @header-transition-duration/2;
+			transition: all @header-transition-duration/2;
 		}
 	}
 }
@@ -92,21 +112,9 @@ header {
 	padding:10px;
 	//.hide-text();
 
-	background:@header-link-color;
+	//background:@header-link-color;
 }
 
-.fill-accent {
-	fill: black;
-}
-.fill-foreground {
-	fill: white;
-}
-
-.brokenlinc-logo {
-	.group-bl {}
-	.path-l {}
-	.path-b {}
-}
 .section--homecontent {
 	position: absolute;
 	width:280px;
@@ -132,11 +140,26 @@ header {
 
 	a {
 		display:inline-block;
-		border-left:1px solid fade(#888, 50%);
 		padding: 0 1em;
 
-		&:first-child {
-			border-left:0 none;
+		text-transform: uppercase;
+		border-radius: 3px;
+		opacity:0.35;
+		transition: opacity 0.3s;
+
+		color:black;
+		border: 1px solid black;
+
+		html.inverted & {
+			color:white;
+			border-color:white;
+		}
+
+		&:hover {
+			opacity:1;
+		}
+		&:hover, &:focus {
+			text-decoration: none;
 		}
 	}
 }
